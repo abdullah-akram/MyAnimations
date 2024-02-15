@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">MyAnimations</string>
+    <string name="hello_sarim_naeem">Hello Sarim Naeem, how can I help you today?</string>
+    <string name="animate">Animate</string>
+    <string name="android_animations_demo">Android Animations Demo</string>
+    <string name="carousel_layout">Carousel Layout</string>
+    <string name="transition_activity">Transition Activity</string>
+    <string name="music_activity">Music Activity</string>
+    <string name="play_sound">Play Sound</string>
+</resources>
