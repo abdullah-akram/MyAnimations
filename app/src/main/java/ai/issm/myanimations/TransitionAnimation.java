@@ -19,7 +19,7 @@ import ai.issm.myanimations.databinding.ActivityTransitionAnimationBinding;
 
 public class TransitionAnimation extends AppCompatActivity {
 
-    ActivityTransitionAnimationBinding activityTransitionAnimationBinding;
+    private ActivityTransitionAnimationBinding activityTransitionAnimationBinding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,9 @@ public class TransitionAnimation extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         activityTransitionAnimationBinding = ActivityTransitionAnimationBinding.inflate(getLayoutInflater());
         setContentView(activityTransitionAnimationBinding.getRoot());
-
+        activityTransitionAnimationBinding.btnBack.setOnClickListener(v -> {
+            finish();
+        });
         activityTransitionAnimationBinding.btnAnimate.setOnClickListener(v -> {
             Pair<View, String> p1 = Pair.create(((View) activityTransitionAnimationBinding.cardView), "image");
             Pair<View, String> p2 = Pair.create(((View) activityTransitionAnimationBinding.txtMessage), "text");
@@ -35,7 +37,6 @@ public class TransitionAnimation extends AppCompatActivity {
             ActivityOptions options = ActivityOptions.makeSceneTransitionAnimation(this, p1, p2);
             Intent intent = new Intent(TransitionAnimation.this, SecondTransition.class);
             startActivity(intent, options.toBundle());
-
 
         });
 

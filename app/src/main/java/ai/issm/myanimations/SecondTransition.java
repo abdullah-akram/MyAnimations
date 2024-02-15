@@ -1,25 +1,41 @@
 package ai.issm.myanimations;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.OvershootInterpolator;
+import android.window.OnBackInvokedDispatcher;
 
 import ai.issm.myanimations.databinding.ActivitySecondTransitionBinding;
 
 public class SecondTransition extends AppCompatActivity {
 
-    ActivitySecondTransitionBinding activitySecondTransitionBinding;
+   private ActivitySecondTransitionBinding activitySecondTransitionBinding;
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         activitySecondTransitionBinding = ActivitySecondTransitionBinding.inflate(getLayoutInflater());
         setContentView(activitySecondTransitionBinding.getRoot());
+
+        activitySecondTransitionBinding.btnBack.setOnClickListener(v -> {
+            finish();
+        });
+
+
 
         activitySecondTransitionBinding.cardView.animate()
 //                .translationY(-6.0f)
